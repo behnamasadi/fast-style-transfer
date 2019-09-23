@@ -1,5 +1,7 @@
 import scipy.misc, numpy as np, os, sys
 import imageio
+from skimage.transform import resize
+
 
 def save_img(out_path, img):
     img = np.clip(img, 0, 255).astype(np.uint8)
@@ -22,7 +24,9 @@ def get_img(src, img_size=False):
    if not (len(img.shape) == 3 and img.shape[2] == 3):
        img = np.dstack((img,img,img))
    if img_size != False:
-       img = scipy.misc.imresize(img, img_size)
+       #img = scipy.misc.imresize(img, img_size)
+       img = resize(bottle, img_size)
+
    return img
 
 def exists(p, msg):
