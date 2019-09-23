@@ -25,7 +25,7 @@ def get_img(src, img_size=False):
        img = np.dstack((img,img,img))
    if img_size != False:
        #img = scipy.misc.imresize(img, img_size)
-       img = resize(bottle, img_size)
+       img = resize(img, img_size)
 
    return img
 
